@@ -1,0 +1,27 @@
+spin_manifest_version = 2
+
+[application]
+name = "component"
+version = "0.1.0"
+authors = ["Mikkel Mørk Hegnhøj <mikkel@fermyon.com>"]
+description = ""
+
+[[trigger.http]]
+route = "/wasi-http"
+component = "wasi-http"
+
+[component.wasi-http]
+source = "../wasi-http-component/target/wasm32-wasi/release/wasi_http.wasm"
+[component.wasi-http.build]
+command = "cargo build --release"
+workdir = "../wasi-http-component"
+
+[[trigger.http]]
+route = "/spin"
+component = "spin"
+
+[component.spin]
+source = "../spin-component/target/wasm32-wasi/release/rust.wasm"
+[component.spin.build]
+command = "cargo build --release --target wasm32-wasi"
+workdir = "../spin-component"

@@ -1,0 +1,14 @@
+[package]
+name = "wasi-http"
+authors = ["Mikkel Mørk Hegnhøj <mikkel@fermyon.com>"]
+description = ""
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = [ "cdylib" ]
+
+[dependencies]
+wit-bindgen = "0.13.0"
+
+[workspace]
